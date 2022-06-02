@@ -17,7 +17,7 @@ Release 5.2 BETA1
 ------------------
 
 This is the first BETA release in the 5.2 release series that upgrades minimal JRE
-level to version 1.8 (8u251 is required) and includes several protocol level and
+level to version 8 (8u251 is required) and includes several protocol level and
 API improvements. It also includes all bug fixes from the 5.1 branch.
 
 Notable changes and features included in the 5.2 series:
@@ -94,11 +94,11 @@ Change Log
   instead of the entire TlsConfig to H2TlsSupport#selectApplicationProtocols() method.
   Contributed by Andrei Vasilev <59628447+AndreiSVasilev at users.noreply.github.com>
 
-* HTTPCLIENT-2195, regression: classic ConnectExec incorrectly discards the proxy response
+* HTTPCLIENT-2195, regression: Classic ConnectExec incorrectly discards the proxy response
   body even if the request cannot be executed and the response is final.
   Contributed by Oleg Kalnichevski <olegk at apache.org>
 
-* HTTPCLIENT-2194: async retry request interceptor fails to correct include request body
+* HTTPCLIENT-2194: Async retry request interceptor fails to correct include request body
   on retry (#343).
   Contributed by JasonMathison <JasonMathison at users.noreply.github.com>
 
