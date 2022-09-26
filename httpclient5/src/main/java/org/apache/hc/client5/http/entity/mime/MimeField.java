@@ -79,8 +79,7 @@ public class MimeField {
     public String getBody() {
         final StringBuilder sb = new StringBuilder();
         sb.append(this.value);
-        for (int i = 0; i < this.parameters.size(); i++) {
-            final NameValuePair parameter = this.parameters.get(i);
+        this.parameters.forEach(parameter -> {
             sb.append("; ");
             sb.append(parameter.getName());
             sb.append("=\"");
@@ -93,7 +92,7 @@ public class MimeField {
                 sb.append(ch);
             }
             sb.append("\"");
-        }
+        });
         return sb.toString();
     }
 

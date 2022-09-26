@@ -601,25 +601,19 @@ public class TestRedirects {
     public void testCompressionHeaderRedirect() throws Exception {
         final Queue<String> values = new ConcurrentLinkedQueue<>();
          final ClassicTestServer server = startServer(null, new Decorator<HttpServerRequestHandler>() {
+        final HttpHost target = start(null, requestHandler -> new RedirectingDecorator(
+                requestHandler,
+                new OldPathRedirectResolver("/oldlocation", "/random", HttpStatus.SC_MOVED_TEMPORARILY)) {
 
             @Override
-            public HttpServerRequestHandler decorate(final HttpServerRequestHandler requestHandler) {
-                return new RedirectingDecorator(
-                        requestHandler,
-                        new OldPathRedirectResolver("/oldlocation", "/random", HttpStatus.SC_MOVED_TEMPORARILY)) {
-
-                    @Override
-                    public void handle(final ClassicHttpRequest request,
-                                       final ResponseTrigger responseTrigger,
-                                       final HttpContext context) throws HttpException, IOException {
-                        final Header header = request.getHeader(HttpHeaders.ACCEPT_ENCODING);
-                        if (header != null) {
-                            values.add(header.getValue());
-                        }
-                        super.handle(request, responseTrigger, context);
-                    }
-
-                };
+            public void handle(final ClassicHttpRequest request,
+                               final ResponseTrigger responseTrigger,
+                               final HttpContext context) throws HttpException, IOException {
+                final Header header = request.getHeader(HttpHeaders.ACCEPT_ENCODING);
+                if (header != null) {
+                    values.add(header.getValue());
+                }
+                super.handle(request, responseTrigger, context);
             }
 
         });

@@ -536,7 +536,7 @@ public class PoolingHttpClientConnectionManager
      * Sets the same {@link SocketConfig} for all routes
      */
     public void setDefaultSocketConfig(final SocketConfig config) {
-        this.socketConfigResolver = (route) -> config;
+        this.socketConfigResolver = route -> config;
     }
 
     /**
@@ -554,7 +554,7 @@ public class PoolingHttpClientConnectionManager
      * @since 5.2
      */
     public void setDefaultConnectionConfig(final ConnectionConfig config) {
-        this.connectionConfigResolver = (route) -> config;
+        this.connectionConfigResolver = route -> config;
     }
 
     /**
@@ -572,7 +572,7 @@ public class PoolingHttpClientConnectionManager
      * @since 5.2
      */
     public void setDefaultTlsConfig(final TlsConfig config) {
-        this.tlsConfigResolver = (host) -> config;
+        this.tlsConfigResolver = host -> config;
     }
 
     /**

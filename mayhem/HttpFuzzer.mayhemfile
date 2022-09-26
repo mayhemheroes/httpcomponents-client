@@ -1,0 +1,8 @@
+project: PROJECT
+target: HttpFuzzer
+cmds:
+- cmd: /out/jazzer_driver --agent_path=/out/jazzer_agent_deploy.jar --cp=/out/httpclient5.jar:/out/httpcore5.jar:/out/slf4j.jar:/out/httpcore5-h2.jar::/out --target_class=HttpFuzzer --jvm_args="-Xmx2048m"
+  env:
+    LD_LIBRARY_PATH: '"/usr/lib/jvm/java-15-openjdk-amd64/lib/server":/out'
+  timeout: 50
+  libfuzzer: true

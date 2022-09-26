@@ -157,7 +157,7 @@ public class PoolingAsyncClientConnectionManagerBuilder {
      * @since 5.2
      */
     public final PoolingAsyncClientConnectionManagerBuilder setDefaultConnectionConfig(final ConnectionConfig config) {
-        this.connectionConfigResolver = (route) -> config;
+        this.connectionConfigResolver = route -> config;
         return this;
     }
 
@@ -178,7 +178,7 @@ public class PoolingAsyncClientConnectionManagerBuilder {
      * @since 5.2
      */
     public final PoolingAsyncClientConnectionManagerBuilder setDefaultTlsConfig(final TlsConfig config) {
-        this.tlsConfigResolver = (host) -> config;
+        this.tlsConfigResolver = host -> config;
         return this;
     }
 

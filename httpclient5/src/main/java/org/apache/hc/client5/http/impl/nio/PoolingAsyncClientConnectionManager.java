@@ -603,7 +603,7 @@ public class PoolingAsyncClientConnectionManager implements AsyncClientConnectio
      * @since 5.2
      */
     public void setDefaultConnectionConfig(final ConnectionConfig config) {
-        this.connectionConfigResolver = (route) -> config;
+        this.connectionConfigResolver = route -> config;
     }
 
     /**
@@ -621,7 +621,7 @@ public class PoolingAsyncClientConnectionManager implements AsyncClientConnectio
      * @since 5.2
      */
     public void setDefaultTlsConfig(final TlsConfig config) {
-        this.tlsConfigResolver = (host) -> config;
+        this.tlsConfigResolver = host -> config;
     }
 
     /**

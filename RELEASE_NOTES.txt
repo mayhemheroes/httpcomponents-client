@@ -3325,4 +3325,3 @@ of the source code repository would have been too burdensome.
 * [HTTPCLIENT-475] Support for unconnected sockets. HTTP requests can now be
   aborted while network socket is still being connected.
   Contributed by Roland Weber <rolandw at apache.org>
-
